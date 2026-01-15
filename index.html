@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Google Sheet</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="loader" class="loader hidden">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+
+    <div class="page-container">
+      <!-- Form -->
+      <form id="bookmarkForm">
+        <h2>Bookmark Form</h2>
+
+        <input type="text" name="name" placeholder="Resource Name" required />
+        <input type="url" name="url" placeholder="Resource URL" required />
+        <textarea
+          name="description"
+          placeholder="Resource Description"
+        ></textarea>
+        <button type="submit">Add Bookmark</button>
+      </form>
+
+      <!-- Table -->
+      <div class="table-wrapper">
+        <h2>My Bookmarks</h2>
+
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>URL</th>
+              <th>Description</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
