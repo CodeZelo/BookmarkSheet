@@ -12,6 +12,12 @@
       <p>Loading...</p>
     </div>
 
+    <nav class="navbar">
+      <div class="nav-brand">📌 Bookmarks</div>
+
+      <button id="themeToggle" class="theme-btn">🌙 Dark</button>
+    </nav>
+
     <div class="page-container">
       <!-- Form -->
       <form id="bookmarkForm">
@@ -30,6 +36,13 @@
       <div class="table-wrapper">
         <h2>My Bookmarks</h2>
 
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search..."
+          style="margin-bottom: 15px; padding: 8px; width: 100%"
+        />
+
         <table id="dataTable">
           <thead>
             <tr>
@@ -41,6 +54,7 @@
           </thead>
           <tbody></tbody>
         </table>
+        <div id="pagination" style="margin-top: 15px; text-align: center"></div>
       </div>
     </div>
 

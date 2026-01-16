@@ -2,7 +2,8 @@ const form = document.getElementById("bookmarkForm");
 const loader = document.getElementById("loader");
 const tableBody = document.querySelector("#dataTable tbody");
 
-const SHEET_URL = "";
+const SHEET_URL =
+  "https://script.google.com/macros/s/AKfycbwm8QhO9khF8bviJXelsIIpJ0XFmo0n7F_zk5OyebLATerYGImXGOnE9sSZymLINDzm/exec";
 
 /* ===== Helper ===== */
 function showLoader() {
@@ -14,17 +15,38 @@ function hideLoader() {
 }
 
 /* ===== Load Table Data ===== */
+let currentPage = 1;
+let currentSearch = "";
+const limit = 5;
+
 function loadTable() {
   showLoader();
 
-  fetch(SHEET_URL)
-    .then((res) => res.json())
-    .then((data) => {
-      tableBody.innerHTML = "";
+  const url = `${SHEET_URL}?search=${encodeURIComponent(
+    currentSearch
+  )}&page=${currentPage}&limit=${limit}`;
 
-      data.forEach((row) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
+  fetch(url)
+    .then((res) => res.json())
+    .then((res) => {
+      renderTable(res.data);
+      renderPagination(res.totalPages);
+    })
+    .catch(() => {
+      alert("Failed to load table ❌");
+    })
+    .finally(() => {
+      hideLoader();
+    });
+}
+
+/* ===== Table Data ===== */
+function renderTable(data) {
+  tableBody.innerHTML = "";
+
+  data.forEach((row) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
           <td data-id="${row.id}">${row.name}</td>
           <td>
             <a 
@@ -32,6 +54,7 @@ function loadTable() {
               data-url="${row.url}"
               data-description="${row.description}"
               title="${row.description}"
+              target="_blank"
             >
               Visit
             </a>
@@ -43,15 +66,29 @@ function loadTable() {
           </td>
         `;
 
-        tableBody.appendChild(tr);
-      });
-    })
-    .catch(() => {
-      alert("Failed to load table ❌");
-    })
-    .finally(() => {
-      hideLoader();
-    });
+    tableBody.appendChild(tr);
+  });
+}
+
+/* ===== Pagination UI ===== */
+function renderPagination(totalPages) {
+  const container = document.getElementById("pagination");
+  container.innerHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+
+    btn.style.margin = "0 5px";
+    btn.disabled = i === currentPage;
+
+    btn.onclick = () => {
+      currentPage = i;
+      loadTable();
+    };
+
+    container.appendChild(btn);
+  }
 }
 
 let currentEditId = null;
@@ -117,5 +154,35 @@ form.addEventListener("submit", function (e) {
     });
 });
 
+/* ===== Search Debounce ===== */
+const searchInput = document.getElementById("searchInput");
+
+let debounceTimer;
+searchInput.addEventListener("input", function () {
+  clearTimeout(debounceTimer);
+
+  debounceTimer = setTimeout(() => {
+    currentSearch = this.value;
+    currentPage = 1;
+    loadTable();
+  }, 400);
+});
+
 /* ===== Initial Load ===== */
 loadTable();
+
+const themeToggle = document.getElementById("themeToggle");
+
+// load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeToggle.innerText = "☀️ Light";
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+  themeToggle.innerText = isDark ? "☀️ Light" : "🌙 Dark";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
