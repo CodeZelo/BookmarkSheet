@@ -3,7 +3,7 @@ const loader = document.getElementById("loader");
 const tableBody = document.querySelector("#dataTable tbody");
 
 const SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbwm8QhO9khF8bviJXelsIIpJ0XFmo0n7F_zk5OyebLATerYGImXGOnE9sSZymLINDzm/exec";
+  "https://script.google.com/macros/s/AKfycbxFxlHq4E-ogeEBTSkW42X5nfV-iuSSA4YyrdmJZ_jUs7rpeSNxLwO7vavsxGNE4Q11vA/exec";
 
 /* ===== Helper ===== */
 function showLoader() {

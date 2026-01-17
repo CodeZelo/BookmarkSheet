@@ -22,11 +22,11 @@ body {
 .nav-brand {
   font-size: 18px;
   font-weight: bold;
-  color: #4f46e5;
+  color: #e5690e;
 }
 
 .theme-btn {
-  background: #4f46e5;
+  background: #e5690e;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -37,7 +37,7 @@ body {
 }
 
 .theme-btn:hover {
-  background: #4338ca;
+  background: #9f4504;
 }
 
 /* Main Layout */
@@ -85,7 +85,7 @@ body {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  background: #4f46e5;
+  background: #e5690e;
   color: #fff;
   font-size: 15px;
   cursor: pointer;
@@ -93,7 +93,7 @@ body {
 }
 
 #bookmarkForm button:hover {
-  background: #4338ca;
+  background: #9f4504;
 }
 
 /* Table Wrapper */
@@ -120,7 +120,7 @@ td {
 }
 
 th {
-  background: #4f46e5;
+  background: #e5690e;
   color: #fff;
 }
 
@@ -180,7 +180,7 @@ tr:hover {
   width: 45px;
   height: 45px;
   border: 4px solid #ddd;
-  border-top: 4px solid #4f46e5;
+  border-top: 4px solid #e5690e;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -220,7 +220,7 @@ body.dark .table-wrapper {
 }
 
 body.dark .table-wrapper a {
-  color: #6590e6;
+  color: #e5690e;
 }
 
 body.dark input,
@@ -231,7 +231,7 @@ body.dark textarea {
 }
 
 body.dark table th {
-  background: #1e293b;
+  background: #e5690e;
 }
 
 body.dark table td {
