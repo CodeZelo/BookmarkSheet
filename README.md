@@ -1,5 +1,7 @@
 # 📌 BookmarkSheet
 
+![Bookmark Management Web App](https://www.codezelo.com/en/categories/projects/build-bookmark-web-app-with-google-sheets/featured.en_hu_46adb0af58c515df.webp "Bookmark Management Web App")
+
 A simple **Bookmark Management Web App** to save and manage YouTube channels, websites, or any online resources using **Google Sheets as a database**.
 
 This project demonstrates how to build a complete CRUD web application without a traditional backend server.
@@ -72,19 +74,15 @@ BookmarkSheet/
 7. Paste the URL inside `main.js`
 8. Open `index.html` in your browser
 
-📸 Screenshots for every step are available in the linked article.
-
 ---
 
 ## 📚 Tutorials & Resources
 
 - 🎥 A full YouTube video explaining the project step by step
-- 📝 Articles covering:
+- 🔗 [Article](https://www.codezelo.com/en/categories/projects/build-bookmark-web-app-with-google-sheets/) covering:
   - Saving HTML form data to Google Sheets
   - Fetching data using GET requests
   - Updating and deleting data using POST requests
-
-🔗 All links are available in the **pinned comment / video description**.
 
 ---
 
@@ -107,7 +105,7 @@ If you like this project:
 
 - ⭐ Star the repository on GitHub
 - 👍 Like & share the video
-- 🔔 Subscribe to the channel
+- 🔔 Subscribe to the [channel](https://www.youtube.com/@CodeZelo)
 
 Have feedback or a project idea? Leave a comment!
 
