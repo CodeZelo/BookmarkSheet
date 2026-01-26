@@ -104,7 +104,8 @@ You can easily:
 If you like this project:
 
 - ⭐ Star the repository on GitHub
-- 👍 Like & share the video
+- 👍 Like & share the video [Part 1](https://youtu.be/ba3z9k2QBkc)
+- 👍 Like & share the video [Part 2](https://youtu.be/dc4Hnv2_OV4)
 - 🔔 Subscribe to the [channel](https://www.youtube.com/@CodeZelo)
 
 Have feedback or a project idea? Leave a comment!

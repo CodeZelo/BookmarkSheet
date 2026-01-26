@@ -69,7 +69,6 @@ body {
 
 #bookmarkForm input,
 #bookmarkForm textarea {
-  width: 100%;
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -96,14 +95,83 @@ body {
   background: #9f4504;
 }
 
-/* Table Wrapper */
-.table-wrapper {
+#bookmarkForm select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+/* Groups */
+.action-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Search takes full row if needed */
+.action-group.grow {
   flex: 1;
+}
+
+/* Inputs & Selects */
+.table-actions input,
+.table-actions select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
+}
+
+.table-actions input {
+  width: 90%;
+}
+
+.table-actions input:focus,
+.table-actions select:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: 0.3s;
+}
+
+.btn-pin,
+.btn-danger,
+.btn-filter {
+  background: #e5690e;
+  color: #fff;
+}
+
+.btn-danger:hover,
+.btn-pin:hover,
+.btn-filter:hover {
+  background: #9f4504;
+}
+
+.btn-pin:disabled,
+.btn-danger:disabled,
+.btn-filter:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Table */
@@ -141,6 +209,22 @@ tr:hover {
   .theme-btn {
     padding: 6px 12px;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .bulk-actions {
+    justify-content: center;
   }
 }
 
@@ -224,7 +308,8 @@ body.dark .table-wrapper a {
 }
 
 body.dark input,
-body.dark textarea {
+body.dark textarea,
+body.dark select {
   background: #020617;
   border-color: #1e293b;
   color: #e5e7eb;
@@ -248,4 +333,32 @@ body.dark .loader {
 
 body.dark .loader p {
   color: #e5e7eb;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.badge-youtube {
+  background: #ff0000;
+  color: #fff;
+}
+
+.badge-course {
+  background: #16a34a;
+  color: #fff;
+}
+
+.badge-website {
+  background: #2563eb;
+  color: #fff;
+}
+
+.badge-article {
+  background: #9333ea;
+  color: #fff;
 }

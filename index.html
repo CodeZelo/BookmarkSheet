@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -29,6 +29,14 @@
           name="description"
           placeholder="Resource Description"
         ></textarea>
+        <select name="type" required>
+          <option value="">Select Type</option>
+          <option value="youtube">YouTube Channel</option>
+          <option value="website">Website</option>
+          <option value="course">Course</option>
+          <option value="article">Article</option>
+        </select>
+
         <button type="submit">Add Bookmark</button>
       </form>
 
@@ -36,17 +44,60 @@
       <div class="table-wrapper">
         <h2>My Bookmarks</h2>
 
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search..."
-          style="margin-bottom: 15px; padding: 8px; width: 100%"
-        />
+        <div class="table-actions">
+          <!-- Search -->
+          <div class="action-group grow">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="🔍 Search bookmarks..."
+            />
+          </div>
+
+          <!-- Table Settings -->
+          <div class="action-group">
+            <select id="limitSelect">
+              <option value="5">5 / page</option>
+              <option value="10">10 / page</option>
+              <option value="20">20 / page</option>
+              <option value="50">50 / page</option>
+            </select>
+
+            <select id="sortSelect">
+              <option value="date_desc">Newest</option>
+              <option value="date_asc">Oldest</option>
+              <option value="name_asc">Name A-Z</option>
+              <option value="name_desc">Name Z-A</option>
+            </select>
+          </div>
+
+          <!-- Date Filter -->
+          <div class="action-group">
+            <input type="date" id="dateFrom" />
+            <input type="date" id="dateTo" />
+          </div>
+
+          <!-- Bulk Actions -->
+          <div class="action-group bulk-actions">
+            <button class="btn btn-filter" onclick="filterByDate()">
+              Filter By Date
+            </button>
+            <button class="btn btn-filter" onclick="clearFilterByDate()">
+              Clear Filter Date
+            </button>
+            <button class="btn btn-pin" onclick="bulkPin()">📌 Pin</button>
+            <button class="btn btn-danger" onclick="bulkDelete()">
+              🗑️ Delete
+            </button>
+          </div>
+        </div>
 
         <table id="dataTable">
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
+              <th>Type</th>
               <th>URL</th>
               <th>Date</th>
               <th>Actions</th>
